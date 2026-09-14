@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ARMFUL: Learning Whole-Arm Grasp Configurations for Single-Arm Pickup of Large Objects</title>
+  <meta name="description" content="Learning whole-arm grasp configurations for single-arm pickup of large objects.">
+  <meta property="og:title" content="ARMFUL: Learning Whole-Arm Grasp Configurations for Single-Arm Pickup of Large Objects"/>
+  <meta property="og:description" content="Learning whole-arm grasp configurations for single-arm pickup of large objects."/>
+  <meta property="og:url" content="https://manipulation-armful.github.io/"/>
+  <meta property="og:image" content="static/images/og_preview.png"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARMFUL: Learning Whole-Arm Grasp Configurations for Single-Arm Pickup of Large Objects">
+  <meta name="twitter:description" content="Learning whole-arm grasp configurations for single-arm pickup of large objects.">
+  <meta name="twitter:image" content="static/images/og_preview.png">
+  <meta name="keywords" content="robotics, manipulation, whole-arm grasping, grasp configuration, large objects, single-arm pickup">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css?v=6">
+  <link rel="stylesheet" href="static/css/index.css?v=6">
+
+  <script defer src="static/js/bulma-carousel.min.js?v=6"></script>
+  <script defer src="static/js/index.js?v=6"></script>
+</head>
+<body>
+
+
+<!-- ======================= HERO: title / links ======================= -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">ARMFUL: Learning Whole-Arm Grasp Configurations<br>for Single-Arm Pickup of Large Objects</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 0.6rem;">
+            <span class="publication-venue">Under Review, 2026</span>
+          </div>
+
+          <!-- TODO: point these at the real URLs; delete any button you do not have. -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>WAG Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ TEASER ============================ -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- TODO: swap for the real teaser:
+           <video autoplay muted loop playsinline data-autoplay
+                  poster="static/images/teaser_poster.jpg" style="width:100%;border-radius:8px;">
+             <source src="static/videos/teaser.mp4" type="video/mp4">
+           </video>
+      -->
+      <div class="placeholder-box">
+        <span class="ph-title">VIDEO PLACEHOLDER</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== RESULTS VIDEO CAROUSEL ===================== -->
+<section class="section" id="videos">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Real-Robot Pickups</h2>
+    <p class="content has-text-centered" style="margin-bottom: 2rem;">
+      ARMFUL on a physical Franka arm across the 10 IKEA objects.
+    </p>
+
+    <div class="carousel results-carousel">
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object1_stool1.jpg">
+            <source src="static/videos/object1_stool1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Stool <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object1_stool2.jpg">
+            <source src="static/videos/object1_stool2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Stool <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object2_greycontainer1.jpg">
+            <source src="static/videos/object2_greycontainer1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Box <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object2_greycontainer2.jpg">
+            <source src="static/videos/object2_greycontainer2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Box <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object3_nightstand1.jpg">
+            <source src="static/videos/object3_nightstand1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Nightstand <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object3_nightstand2.jpg">
+            <source src="static/videos/object3_nightstand2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Nightstand <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object4_nightstand1_1.jpg">
+            <source src="static/videos/object4_nightstand1_1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Nightstand (no shelf) <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object4_nightstand1_2.jpg">
+            <source src="static/videos/object4_nightstand1_2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Nightstand (no shelf) <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object5_brownstand1.jpg">
+            <source src="static/videos/object5_brownstand1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Tray Table <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object5_brownstand2.jpg">
+            <source src="static/videos/object5_brownstand2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Tray Table <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object6_chair1.jpg">
+            <source src="static/videos/object6_chair1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Chair <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object6_chair2.jpg">
+            <source src="static/videos/object6_chair2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Chair <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object7_silvershoerack.jpg">
+            <source src="static/videos/object7_silvershoerack.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Shelf Unit <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object7_silvershoerack2.jpg">
+            <source src="static/videos/object7_silvershoerack2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Shelf Unit <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object8_3layerstand1.jpg">
+            <source src="static/videos/object8_3layerstand1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Cart <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object8_3layerstand2.jpg">
+            <source src="static/videos/object8_3layerstand2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Cart <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object9_woodshoerack1.jpg">
+            <source src="static/videos/object9_woodshoerack1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Shoe Rack <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object9_woodshoerack2.jpg">
+            <source src="static/videos/object9_woodshoerack2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Shoe Rack <span class="slide-trial">trial 2</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object10_umbrellastand1.jpg">
+            <source src="static/videos/object10_umbrellastand1.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Umbrella Stand <span class="slide-trial">trial 1</span></div>
+        </div>
+        <div class="item">
+          <video controls muted loop playsinline preload="none" poster="static/images/posters/object10_umbrellastand2.jpg">
+            <source src="static/videos/object10_umbrellastand2.mp4" type="video/mp4">
+          </video>
+          <div class="slide-label">Umbrella Stand <span class="slide-trial">trial 2</span></div>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================== ABSTRACT =========================== -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Many everyday objects, such as storage boxes, baskets, and furnitures, are too
+            large or heavy for an end-effector gripper to grasp. With its whole arm, a single robot
+            arm can still pick them up by wrapping around and supporting them. Learning such
+            whole-arm grasps is challenging due to a lack of data, since wrapping motions are
+            difficult to teleoperate and existing manipulation datasets contain little whole-arm
+            pickup data. We introduce <b>WAG</b> (Whole-Arm Grasp Dataset), the first large-scale
+            dataset for single-arm pickup of large objects. We sample candidate grasp configurations
+            directly in joint space and test them in a GPU-parallel simulation, executing each
+            through a squeeze-and-lift primitive and certifying the survivors under active shaking
+            and external forces applied to the object. To the best of our knowledge, WAG is the
+            first large-scale whole-arm grasp dataset, with around 1.7&nbsp;million certified
+            configurations across 978 objects of diverse shapes and sizes. A diffusion model trained
+            on WAG generates whole-arm grasp configurations from the object's point cloud, and a
+            motion planner realizes them with a collision-free approach followed by the same
+            squeeze-and-lift execution. Together, these components form <b>ARMFUL</b>. In simulation,
+            ARMFUL outperforms heuristic and retrieval baselines across both seen and unseen objects,
+            and its performance transfers to a physical Franka arm on 10 IKEA objects evaluated in
+            both simulation and the real world.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ METHOD ============================ -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+
+        <h2 class="title is-3 has-text-centered">Dataset Generation</h2>
+
+        <div class="figure-block">
+          <img src="static/images/fig2_wag_dataset.png"
+               alt="Construction of the WAG dataset: sample grasp configurations, filter penetration, then squeeze, lift and perturb in simulation.">
+          <p class="figure-caption">
+            <b>Construction of WAG.</b> We sample candidate whole-arm grasp configurations,
+            discard penetrating candidates, and test the rest directly in a GPU-parallel simulation.
+            The arm is teleported to the candidate grasp configuration and executes the squeeze and
+            lift primitive. Configurations that hold the object through the lift are certified under
+            shaking and an external force applied to the object, and successful configurations enter WAG.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered">Pickup Pipeline</h2>
+
+        <div class="figure-block">
+          <img src="static/images/fig3_armful_overview.png"
+               alt="Overview of ARMFUL: diffusion-based grasp configuration learning followed by motion planning.">
+          <p class="figure-caption">
+            <b>Overview of ARMFUL.</b> <b>(a) Grasp configuration learning.</b> A diffusion model
+            conditioned on the object's point cloud, encoded with the DP3 encoder, and on the arm's
+            initial configuration generates whole-arm grasp configurations, which are filtered for
+            self-collision, object and table penetration, and planner feasibility.
+            <b>(b) Motion planning.</b> The arm follows an RRT-Connect path to the selected arm grasp
+            configuration, and the same squeeze-and-lift execution completes the pickup.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Template from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

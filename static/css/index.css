@@ -1,0 +1,244 @@
+/* Adapted from the Nerfies project page (https://nerfies.github.io) */
+
+body {
+  font-family: 'Noto Sans', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+}
+
+/* Bulma's .container centres itself with auto side margins, and an auto
+   cross-axis margin stops a flex item stretching - so inside the flex .hero the
+   container collapses to its content width. Pin it instead. */
+.teaser .container {
+  width: 100%;
+}
+
+.publication-title {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  /* The long first line measures 23.03em, and the container gives it
+     min(100vw - 96px, 960px). Sizing off that keeps the title on exactly two
+     lines from ~770px up; below the mobile breakpoint it is free to wrap. */
+  font-size: clamp(1.6rem, calc(4.25vw - 4px), 2.5rem) !important;
+  line-height: 1.25;
+}
+
+.publication-header .hero-body {
+  padding-top: 3rem;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+}
+
+.publication-venue {
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 43%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+  margin-right: 0.2em;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.content h2,
+.title.is-3 {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+}
+
+/* ---------- figures ---------- */
+.figure-block {
+  margin-bottom: 2.5rem;
+}
+
+.figure-block img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.figure-caption {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+/* ---------- results carousel (bulma-carousel, as on the Nerfies page) ---------- */
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+  background: #000;
+}
+
+.results-carousel video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Fullscreen: drop the card's forced box so the browser can fit the clip to
+   the screen instead of blowing it up to 9:16 of the screen width. */
+.results-carousel video:fullscreen {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.results-carousel video:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Sits at the top: the native control bar owns the bottom of the frame. */
+.slide-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.5rem 0.6rem 1.4rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+  color: #fff;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.slide-trial {
+  opacity: 0.7;
+  font-size: 0.7rem;
+  margin-left: 0.25em;
+}
+
+/* Nudge the library's controls to sit like the Nerfies ones. */
+.results-carousel .slider-navigation-previous,
+.results-carousel .slider-navigation-next {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.13);
+}
+
+/* Drop the pagination clear of the cards so it does not cover the labels,
+   and recolour it - the library's dots are white, invisible on a white page. */
+.results-carousel .slider {
+  padding-bottom: 30px;
+}
+
+.results-carousel .slider-pagination {
+  bottom: 0;
+  padding: 0;
+}
+
+.results-carousel .slider-pagination .slider-page {
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+  background: #dbdbdb;
+  box-shadow: none;
+}
+
+.results-carousel .slider-pagination .slider-page.is-active {
+  background: #363636;
+}
+
+/* Keep the arrows centred on the cards, not on the padded box. */
+.results-carousel .slider-navigation-previous,
+.results-carousel .slider-navigation-next {
+  margin-top: -15px;
+}
+
+/* Native controls are cramped on a narrow card - give them a readable scale. */
+.results-carousel video::-webkit-media-controls-panel {
+  padding: 0 2px;
+}
+
+/* ---------- footer ---------- */
+/* Bulma ships .footer with 3rem 1.5rem 6rem - far too tall for one line. */
+.footer {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer .content p {
+  margin: 0;
+}
+
+/* ---------- placeholders (remove once real content is in) ---------- */
+.placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  max-width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: repeating-linear-gradient(45deg, #f4f4f6, #f4f4f6 12px, #ececf0 12px, #ececf0 24px);
+  border: 1px dashed #c5c5cd;
+  border-radius: 8px;
+  color: #8a8a96;
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.placeholder-box .ph-title { font-weight: 600; color: #6e6e7a; letter-spacing: 0.04em; }
+
+.todo {
+  background: #fffbe6;
+  border-left: 3px solid #ffd85e;
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+  color: #7a6a1f;
+}
+
+/* ---------- responsive ---------- */
+@media screen and (max-width: 768px) {
+  .publication-title { font-size: 1.9rem !important; }
+  .figure-caption { text-align: left; }
+}
