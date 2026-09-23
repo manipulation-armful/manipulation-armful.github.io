@@ -20,11 +20,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css?v=6">
-  <link rel="stylesheet" href="static/css/index.css?v=6">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css?v=8">
+  <link rel="stylesheet" href="static/css/index.css?v=8">
 
-  <script defer src="static/js/bulma-carousel.min.js?v=6"></script>
-  <script defer src="static/js/index.js?v=6"></script>
+  <script defer src="static/js/bulma-carousel.min.js?v=8"></script>
+  <script defer src="static/js/index.js?v=8"></script>
 </head>
 <body>
 
@@ -87,15 +87,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: swap for the real teaser:
-           <video autoplay muted loop playsinline data-autoplay
-                  poster="static/images/teaser_poster.jpg" style="width:100%;border-radius:8px;">
-             <source src="static/videos/teaser.mp4" type="video/mp4">
-           </video>
-      -->
-      <div class="placeholder-box">
-        <span class="ph-title">VIDEO PLACEHOLDER</span>
-      </div>
+      <video class="teaser-video" controls playsinline preload="none"
+             poster="static/images/teaser_poster.jpg?v=8">
+        <source src="static/videos/teaser.mp4?v=8" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -244,24 +239,21 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Many everyday objects, such as storage boxes, baskets, and furnitures, are too
-            large or heavy for an end-effector gripper to grasp. With its whole arm, a single robot
-            arm can still pick them up by wrapping around and supporting them. Learning such
-            whole-arm grasps is challenging due to a lack of data, since wrapping motions are
-            difficult to teleoperate and existing manipulation datasets contain little whole-arm
-            pickup data. We introduce <b>WAG</b> (Whole-Arm Grasp Dataset), the first large-scale
-            dataset for single-arm pickup of large objects. We sample candidate grasp configurations
-            directly in joint space and test them in a GPU-parallel simulation, executing each
-            through a squeeze-and-lift primitive and certifying the survivors under active shaking
-            and external forces applied to the object. To the best of our knowledge, WAG is the
-            first large-scale whole-arm grasp dataset, with around 1.7&nbsp;million certified
-            configurations across 978 objects of diverse shapes and sizes. A diffusion model trained
-            on WAG generates whole-arm grasp configurations from the object's point cloud, and a
-            motion planner realizes them with a collision-free approach followed by the same
-            squeeze-and-lift execution. Together, these components form <b>ARMFUL</b>. In simulation,
-            ARMFUL outperforms heuristic and retrieval baselines across both seen and unseen objects,
-            and its performance transfers to a physical Franka arm on 10 IKEA objects evaluated in
-            both simulation and the real world.
+            Many everyday objects, such as storage boxes, baskets, and chairs, are too large or
+            heavy for a gripper to grasp, yet a single arm can still pick them up by wrapping
+            around and supporting them. Such grasps are hard to learn: wrapping motions are
+            difficult to teleoperate, and existing datasets contain little whole-arm pickup data.
+            We introduce <b>WAG</b> (Whole-Arm Grasp Dataset), the first large-scale dataset for
+            single-arm pickup of large objects, with 1.7&nbsp;million certified joint
+            configurations across 978 objects. We sample configurations directly in joint space,
+            execute each through a squeeze-and-lift primitive in GPU-parallel simulation, and
+            certify survivors under active shaking and external forces. To demonstrate the utility
+            of WAG and accomplish the whole-arm pickup task, we train a diffusion model to generate
+            whole-arm grasps from the object's point cloud, and a motion planner reaches them
+            collision-free before the same squeeze-and-lift execution; together these form
+            <b>ARMFUL</b>. In simulation, ARMFUL reaches 80.4% lift success on seen and 72.8% on
+            unseen objects, and it lifts the object in 70 of 100 trials on a physical Franka arm
+            across 10 IKEA objects.
           </p>
         </div>
       </div>
@@ -272,14 +264,14 @@
 
 <!-- ============================ METHOD ============================ -->
 <section class="section" id="method">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered">
       <div class="column is-full">
 
         <h2 class="title is-3 has-text-centered">Dataset Generation</h2>
 
         <div class="figure-block">
-          <img src="static/images/fig2_wag_dataset.png"
+          <img src="static/images/fig2_wag_dataset.png?v=8"
                alt="Construction of the WAG dataset: sample grasp configurations, filter penetration, then squeeze, lift and perturb in simulation.">
           <p class="figure-caption">
             <b>Construction of WAG.</b> We sample candidate whole-arm grasp configurations,
@@ -293,7 +285,7 @@
         <h2 class="title is-3 has-text-centered">Pickup Pipeline</h2>
 
         <div class="figure-block">
-          <img src="static/images/fig3_armful_overview.png"
+          <img src="static/images/fig3_armful_overview.png?v=8"
                alt="Overview of ARMFUL: diffusion-based grasp configuration learning followed by motion planning.">
           <p class="figure-caption">
             <b>Overview of ARMFUL.</b> <b>(a) Grasp configuration learning.</b> A diffusion model

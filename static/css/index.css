@@ -206,28 +206,14 @@ body {
   margin: 0;
 }
 
-/* ---------- placeholders (remove once real content is in) ---------- */
-.placeholder-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 75%;
-  max-width: 100%;
+/* ---------- teaser video ---------- */
+.teaser-video {
+  display: block;
+  width: 100%;
   margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  background: repeating-linear-gradient(45deg, #f4f4f6, #f4f4f6 12px, #ececf0 12px, #ececf0 24px);
-  border: 1px dashed #c5c5cd;
   border-radius: 8px;
-  color: #8a8a96;
-  font-family: 'Google Sans', 'Noto Sans', sans-serif;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1rem;
-  line-height: 1.5;
+  background: #000;
 }
-
-.placeholder-box .ph-title { font-weight: 600; color: #6e6e7a; letter-spacing: 0.04em; }
 
 .todo {
   background: #fffbe6;
