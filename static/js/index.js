@@ -1,14 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ---- Navbar burger (Bulma) ----
-  Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0).forEach(function (el) {
-    el.addEventListener('click', function () {
-      var target = document.getElementById(el.dataset.target);
-      el.classList.toggle('is-active');
-      if (target) target.classList.toggle('is-active');
-    });
-  });
-
   // ---- Results carousel (same library and options as the Nerfies page) ----
   if (window.bulmaCarousel) {
     // Open on the middle clip so the strip reads as a loop, not as a start.

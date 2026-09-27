@@ -37,10 +37,6 @@ body {
   line-height: 1.25;
 }
 
-.publication-header .hero-body {
-  padding-top: 3rem;
-}
-
 .publication-authors {
   font-family: 'Google Sans', 'Noto Sans', sans-serif;
 }
@@ -49,14 +45,6 @@ body {
   color: #555;
   width: fit-content;
   font-weight: bold;
-}
-
-.publication-authors a {
-  color: hsl(204, 86%, 43%) !important;
-}
-
-.publication-authors a:hover {
-  text-decoration: underline;
 }
 
 .author-block {
@@ -213,14 +201,6 @@ body {
   margin: 0 auto;
   border-radius: 8px;
   background: #000;
-}
-
-.todo {
-  background: #fffbe6;
-  border-left: 3px solid #ffd85e;
-  padding: 0.15em 0.4em;
-  border-radius: 2px;
-  color: #7a6a1f;
 }
 
 /* ---------- responsive ---------- */
